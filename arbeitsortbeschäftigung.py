@@ -15,7 +15,7 @@ def parse_value(v):
         val = float(v)
         return val
     except:
-        return -1
+        return 0
 
 def parse_arbeitsmarkt():
     os.makedirs(OUTPUT_DIR, exist_ok=True)

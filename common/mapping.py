@@ -4,8 +4,6 @@ sys.path.append(os.path.dirname(__file__))
 
 import logging
 
-from .sorted_gebiet_to_gemeinde import sorted_gebiet_to_gemeinde
-
 from gemeinden.altenstadt import mapping as altenstadt_mapping
 from gemeinden.bad_nauheim import mapping as bad_nauheim_mapping
 from gemeinden.bad_vilbel import mapping as bad_vilbel_mapping
