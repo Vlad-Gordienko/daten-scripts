@@ -30,6 +30,9 @@ from gemeinden.rosbach_v_d_hoehe import mapping as rosbach_v_d_hoehe_mapping
 from gemeinden.woelfersheim import mapping as woelfersheim_mapping
 from gemeinden.woellstadt import mapping as woellstadt_mapping
 
+from schluessel_map import schluessel_map
+from gemeinde_aliases import gemeinde_aliases
+
 from gemeinden.gemeinden import (
     Altenstadt,
     Bad_Nauheim,
@@ -174,3 +177,26 @@ def log_missing_gebiete(found_by_gemeinde: dict):
                 f"Gemeinde '{mapping_gemeinde[gemeinde][0]}' is missing {len(missing)} Gebiet(e): {sorted(missing)}"
             )
 
+def get_gemeinde_by_schluessel(schluessel: str) -> str | None:
+    if not schluessel:
+        return None
+
+    if schluessel in schluessel_map:
+        return schluessel_map[schluessel]
+
+    logging.warning(f"Gemeinde not found for schluessel: '{schluessel}'")
+    return None
+
+def normalize_gemeinde_name(raw_name: str) -> str:
+    norm = raw_name.strip().lower().replace("-", " ").replace("ß", "ss")
+
+    for canonical, alternatives in gemeinde_aliases.items():
+        for alt in alternatives:
+            alt_norm = alt.strip().lower().replace("-", " ").replace("ß", "ss")
+            if norm == alt_norm:
+                return canonical
+
+    logging.warning(
+        f"Gemeinde mapping: unknown name '{raw_name}' — not mapped to canonical."
+    )
+    return raw_name

@@ -3,7 +3,7 @@ import os
 import datetime
 
 from common.gebiet_schluessel import gebiet_schluessel
-from common.mapping import get_gemeinde_from_gebiet, track_undetected_gebiete, log_missing_gebiete
+from common.mapping import get_gemeinde_from_gebiet, track_undetected_gebiete, log_missing_gebiete, get_gemeinde_by_schluessel
 
 FILENAME = "geburtsjahrgangsstatistik.xlsx"
 INPUT_DIR = "data"
@@ -57,8 +57,15 @@ def parse_excel():
 
     df["gruppe"] = df["Jahrgang"].apply(classify_group)
 
+    df = df[df["Gemeinde"].notnull() & (df["Gemeinde"] != "")]
     grouped = df.groupby(["Gemeinde", "gruppe"])["EW gesamt"].sum().unstack(fill_value=0).reset_index()
-    grouped["amtlicher gemeindeschlüssel"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[0])
+    grouped["gemeindeschlüssel"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[0])
+    grouped["gemeindeschlüssel"] = grouped["gemeindeschlüssel"].apply(
+        lambda x: str(x).zfill(8) if pd.notnull(x) and str(x).isdigit() else ""
+    )
+    grouped["gemeinde"] = grouped["gemeindeschlüssel"].apply(
+        lambda schluessel: get_gemeinde_by_schluessel(schluessel)
+    )
     grouped["iso"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[1])
 
     grouped["junge quotient"] = (grouped["junge"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
@@ -68,7 +75,6 @@ def parse_excel():
     grouped["alte quotient"] = grouped["alte quotient"].round(2).astype(str) + "%"
 
     grouped = grouped.rename(columns={
-        "Gemeinde": "gemeinde",
         "junge": "junge count",
         "alte": "alte count",
         "mittleren": "mittleren count"
@@ -78,7 +84,7 @@ def parse_excel():
 
     final_columns = [
         "gemeinde",
-        "amtlicher gemeindeschlüssel",
+        "gemeindeschlüssel",
         "iso",
         "junge count",
         "alte count",
