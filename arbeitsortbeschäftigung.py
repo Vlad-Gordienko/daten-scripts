@@ -1,6 +1,9 @@
 import pandas as pd
 import os
 
+
+from common.mapping import normalize_gemeinde_name
+
 FILENAME = "arbeitsortbeschäftigung.xlsx"
 INPUT_DIR = "data/arbeitsortbeschäftigung"
 OUTPUT_DIR = "result"
@@ -49,7 +52,7 @@ def parse_arbeitsmarkt():
                            .strip()
             )
 
-            row = {"gemeinde": commune_name}
+            row = {"gemeinde": normalize_gemeinde_name(commune_name)}
             for i in range(4):
                 row[category_names[i]] = values[i]
 
