@@ -20,10 +20,10 @@ geocode_cache = {}
 def geocode_address(address, index, length):
     print(f"{index + 1}/{length}: {address}")
     if address in geocode_cache:
-        print('get from cache') # todo
+        print('Get from: Cache')
         return geocode_cache[address]
     try:
-        print('get from geolocator')
+        print('Get from: Geolocator')
         location = geolocator.geocode(address)
         if location:
             coords = (location.latitude, location.longitude)
@@ -53,6 +53,8 @@ def save_geocode_cache():
            json.dump(updated_cache, f, ensure_ascii=False, indent=2)
 
 def parse_adressen():
+    global geocode_cache
+
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     if not os.path.exists(INPUT_PATH):

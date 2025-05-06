@@ -14,5 +14,1189 @@
   "Quellenstraße 21, 61118 Bad Vilbel": [
     50.1862462,
     8.7450547
+  ],
+  "Blumenstraße 15, 65516 Münzenberg": [
+    50.4585766,
+    8.7361192
+  ],
+  "Am Wannberg 6, 63697 Hirzenhain": [
+    50.3939925,
+    9.1324348
+  ],
+  "An der Gärtnerei 1, 63691 Ranstadt": [
+    50.3607123,
+    8.9821621
+  ],
+  "Ramonville Straße 27, 61184 Karben": [
+    50.235334,
+    8.7630206
+  ],
+  "Elisabethenstraße 15, 35519 Rockenberg": [
+    50.418053,
+    8.7424456
+  ],
+  "Berliner Str. 22, 61200 Wölfersheim": [
+    50.4001393,
+    8.8222783
+  ],
+  "Willi-Holzmann-Ring 26-30, 61197 Florstadt": [
+    50.3199239,
+    8.8697706
+  ],
+  "Dorn-Assenheimer-Straße 19, 61203 Reichelsheim": [
+    50.3578029,
+    8.8421351
+  ],
+  "An der Sodenschmiede 7, 61231 Bad Nauheim": [
+    50.360854,
+    8.7454683
+  ],
+  "Frankenstraße 41, 63667 Nidda": [
+    50.4557902,
+    9.0481273
+  ],
+  "Obergasse 34, 63674 Altenstadt": [
+    50.2875431,
+    8.9396237
+  ],
+  "Jägerstr.37, 55116 Mainz": [
+    49.9893645,
+    8.2728362
+  ],
+  "Homburger Straße 26, 61169 Friedberg": [
+    50.3273171,
+    8.7460933
+  ],
+  "Vogelsbergstr. 94, 63654 Büdingen": [
+    50.3016267,
+    9.1089186
+  ],
+  "Dieselstraße 9, 61184 Karben": [
+    50.2260615,
+    8.7623053
+  ],
+  "Hauptstraße 54, 61231 Bad Nauheim": [
+    50.3632891,
+    8.735226
+  ],
+  "In den Kolonnaden 7, 61231 Bad Nauheim": [
+    50.3657832,
+    8.7419361
+  ],
+  "Unterer Lachenweg 2, 35510 Butzbach": [
+    50.4375064,
+    8.6686522
+  ],
+  "Vogelsbergstr. 46, 63674 Altenstadt": [
+    50.2881354,
+    8.9501222
+  ],
+  "Hauptstr. 25, 63691 Ranstadt": [
+    50.359404,
+    8.9870054
+  ],
+  "Hanauer Str. 32, 63674 Altenstadt": [
+    50.2836509,
+    8.9455393
+  ],
+  "Zander Str. 19, 61231 Bad Nauheim": [
+    50.3609024,
+    8.7442884
+  ],
+  "Frankfurter Straße 10, 61231 Bad Nauheim": [
+    50.3639988,
+    8.7488995
+  ],
+  "Carl-Oeleman-Weg 11, 61231 Bad Nauheim": [
+    null,
+    null
+  ],
+  "Pestalozzi Str.10, 61118 Bad Vilbel": [
+    50.1754659,
+    8.7187426
+  ],
+  "Friedberger Str.175, 61118 Bad Vilbel": [
+    50.2051323,
+    8.74405
+  ],
+  "Weiseler Straße 46, 35510 Butzbach": [
+    50.4311888,
+    8.6711583
+  ],
+  "Hannerstr. 14, 63654 Büdingen": [
+    50.2915034,
+    9.1137524
+  ],
+  "An der Seewiese 1, 61169 Friedberg": [
+    50.3390636,
+    8.7484305
+  ],
+  "Hanauer Str.31, 61169 Friedberg": [
+    50.3333473,
+    8.7589628
+  ],
+  "Lohgasse 11, 61184 Karben": [
+    50.2213446,
+    8.7784149
+  ],
+  "Konrad Adenauer Allee 9, 61130 Nidderau": [
+    50.2255302,
+    8.8773095
+  ],
+  "Zuseweg 1a, 61194 Niddatal": [
+    50.2935939,
+    8.8080209
+  ],
+  "Leimkau 2b, 61191 Rosbach": [
+    null,
+    null
+  ],
+  "Bei den Junkergärten 1, 61191 Rosbach": [
+    50.3009087,
+    8.6940727
+  ],
+  "Kleine Klostergasse 16, 61169 Friedberg": [
+    50.3376272,
+    8.7568023
+  ],
+  "Alte Bahnhofsstr.3, 61169 Friedberg": [
+    null,
+    null
+  ],
+  "Saarstr.55, 61169 Friedberg": [
+    50.3323013,
+    8.7597252
+  ],
+  "Ramonville-Str.2, 61184 Karben": [
+    50.2340299,
+    8.7616147
+  ],
+  "Schillerstr.34, 63667 Nidda": [
+    50.4156445,
+    9.0076684
+  ],
+  "Ober-Seemer-Str. 10-12, 63688 Gedern": [
+    50.4228185,
+    9.2043673
+  ],
+  "Steinweg 18-22, 63654 Büdingen": [
+    50.286266,
+    9.1118906
+  ],
+  "Schwalheimer Straße 84, 61231 Bad Nauheim": [
+    50.3566972,
+    8.7510062
+  ],
+  "Johann Sebastian Bach str.26, 35510 Butzbach": [
+    50.4443603,
+    8.6606747
+  ],
+  "Homburger str.26, 61169 Friedberg": [
+    50.3273171,
+    8.7460933
+  ],
+  "Dieselstr.9, 61184 Karben": [
+    50.2260615,
+    8.7623053
+  ],
+  "Taunusstraße 23, 35510 Butzbach": [
+    50.4067806,
+    8.6331602
+  ],
+  "Bahnhofstr.40, 35519 Rockenberg": [
+    50.4157826,
+    8.7384512
+  ],
+  "Haagstraße 33, 61169 Friedberg": [
+    50.336184,
+    8.7570774
+  ],
+  "Kaiserstraße 128, 61169 Friedberg": [
+    50.3341442,
+    8.7527678
+  ],
+  "Ockstädter Str. 3-5, 61169 Friedberg": [
+    50.3348634,
+    8.751358
+  ],
+  "Fichtenstr. 4, 61169 Friedberg": [
+    50.3330644,
+    8.74569
+  ],
+  "Schloßplatz 4, 35510 Butzbach": [
+    50.4340265,
+    8.6744545
+  ],
+  "Quellenstr. 21, 61118 Bad Vilbel": [
+    50.1862462,
+    8.7450547
+  ],
+  "Kreuzgasse 9, 61169 Friedberg": [
+    50.3484107,
+    8.7902631
+  ],
+  "Frankfurter Str. 24, 61231 Bad Nauheim": [
+    50.3657934,
+    8.7478211
+  ],
+  "Hessenring 31, 61184 Karben": [
+    50.2350054,
+    8.7677945
+  ],
+  "Gymnasiumstr. 5, 63654 Büdingen": [
+    50.2893701,
+    9.113504
+  ],
+  "Stückweg 6, 63667 Nidda": [
+    null,
+    null
+  ],
+  "Dieselstraße 22, 61231 Bad Nauheim": [
+    50.3659349,
+    8.7519682
+  ],
+  "Wisselheimer Haupstraße 38, 61231 Bad Nauheim": [
+    null,
+    null
+  ],
+  "Straßheimer Straße 67-69, 61169 Friedberg": [
+    50.3220558,
+    8.746762
+  ],
+  "Altenstädter Straße 27, 63674 Altenstadt": [
+    50.290476,
+    8.9812917
+  ],
+  "Bergheimer Straße 7, 61200 Wölfersheim": [
+    50.4289335,
+    8.8353305
+  ],
+  "Lustgartenstraße 2, 61203 Reichelsheim": [
+    50.3622919,
+    8.8426591
+  ],
+  "Hessenring 1 B, 61191 Rosbach": [
+    50.2983105,
+    8.7114168
+  ],
+  "Freiherr-vom-Stein-Straße 1, 61197 Florstadt": [
+    50.3231622,
+    8.8689435
+  ],
+  "Christinenstraße 17, 61184 Karben": [
+    50.2336011,
+    8.7714209
+  ],
+  "Ritterhausstraße 10, 61231 Bad Nauheim": [
+    null,
+    null
+  ],
+  "Schlossplatz 1, 35510 Butzbach": [
+    50.4331772,
+    8.6751641
+  ],
+  "Marktplatz 2, 61118 Bad Vilbel": [
+    50.1837491,
+    8.7437328
+  ],
+  "Am Alten Jugendzentrum 4, 61169 Friedberg": [
+    50.3332815,
+    8.7586517
+  ],
+  "Altenstädter Str. 27, 63694 Limeshain": [
+    null,
+    null
+  ],
+  "Hauptstraße 22, 35516 Münzenberg": [
+    50.4624975,
+    8.7273235
+  ],
+  "Weinstraße 15, 61239 Ober-Mörlen": [
+    50.3721188,
+    8.6833849
+  ],
+  "Rabenbergstraße 10, 63691 Ranstadt": [
+    50.3626482,
+    8.9844311
+  ],
+  "Raunstraße 79, 61209 Echzell": [
+    50.3675925,
+    8.8938366
+  ],
+  "Sudetenlandstraße 28, 63688 Gedern": [
+    50.428184,
+    9.1963372
+  ],
+  "Am Alten Jugendzentrum 2, 61169 Friedberg": [
+    50.3335201,
+    8.7583722
+  ],
+  "Wilhelm-Eckhardt-Platz, 63667 Nidda": [
+    50.4132944,
+    9.0105095
+  ],
+  "Eberhard-Bauner-Allee 16, 63654 Büdingen": [
+    50.2890587,
+    9.1087859
+  ],
+  "Hauptstraße 29, 61169 Friedberg": [
+    50.32813,
+    8.7731322
+  ],
+  "Bahnhofstraße 26, 63667 Nidda": [
+    50.4127876,
+    9.0053915
+  ],
+  "Blücherstraße 23, 61231 Bad Nauheim": [
+    50.3592197,
+    8.7388332
+  ],
+  "Vogelsbergstraße 46, 63674 Altenstadt": [
+    50.2881354,
+    8.9501222
+  ],
+  "Düdelsheimer Straße 11, 63674 Altenstadt": [
+    50.2897118,
+    8.9850394
+  ],
+  "Wiesengasse 2, 61118 Bad Vilbel": [
+    50.1797612,
+    8.736842
+  ],
+  "Bahnhofstraße 61, 63667 Nidda": [
+    50.408859,
+    8.9959403
+  ],
+  "Friedberger Straße 10, 61231 Bad Nauheim": [
+    50.35837,
+    8.7387654
+  ],
+  "Hessenring 1b, 61191 Rosbach": [
+    50.2983105,
+    8.7114168
+  ],
+  "Gondolfstraße 9, 61206 Wöllstadt": [
+    50.2963629,
+    8.753518
+  ],
+  "Roter Lohweg 22, 35510 Butzbach": [
+    50.4360413,
+    8.6875887
+  ],
+  "Hungebergweg 1, 63654 Büdingen": [
+    50.2857321,
+    9.0710878
+  ],
+  "Königsberger Straße 3, 61169 Friedberg": [
+    50.3266328,
+    8.7620027
+  ],
+  "Nauheimer Straße 18, 61239 Ober-Mörlen": [
+    50.3718726,
+    8.6981749
+  ],
+  "Neuer Weg 27, 63699 Kefenrod": [
+    50.3525911,
+    9.1725076
+  ],
+  "Bahnhofsallee 60, 35510 Butzbach": [
+    50.4067865,
+    8.6747534
+  ],
+  "Bergstraße 1, 61231 Bad Nauheim": [
+    50.3551569,
+    8.7640682
+  ],
+  "Hanauer Str.32, 63674 Altenstadt": [
+    50.2836509,
+    8.9455393
+  ],
+  "Frankfurter Straße 1c, 61231 Bad Nauheim": [
+    50.3634657,
+    8.7499588
+  ],
+  "Karl-Oelemann-Weg 11, 61231 Bad Nauheim": [
+    null,
+    null
+  ],
+  "Kurstraße 9, 61231 Bad Nauheim": [
+    50.3647354,
+    8.7406227
+  ],
+  "Frankfurter Landstraße 15, 61231 Bad Nauheim": [
+    50.3615584,
+    8.7502811
+  ],
+  "Arthur-Weber-Weg 1, 61231 Bad Nauheim": [
+    50.3563551,
+    8.7296371
+  ],
+  "Johann-Sebastian-Bach-Straße 26, 35510 Butzbach": [
+    50.4443603,
+    8.6606747
+  ],
+  "Langönser Straße 10, 35510 Butzbach": [
+    null,
+    null
+  ],
+  "Weiseler Str. 17, 35510 Butzbach": [
+    50.4326999,
+    8.6705457
+  ],
+  "Ketteler Str. 1, 35519 Rockenberg": [
+    50.4185108,
+    8.7449917
+  ],
+  "Im Rosengarten 25c, 61118 Bad Vilbel": [
+    50.1968782,
+    8.7451388
+  ],
+  "Industriestraße 10, 61118 Bad Vilbel": [
+    50.2089185,
+    8.7475478
+  ],
+  "Frankfurter Straße 70, 61118 Bad Vilbel": [
+    50.1802071,
+    8.7396382
+  ],
+  "Weitzesweg 16a, 61118 Bad Vilbel": [
+    50.2074587,
+    8.7505541
+  ],
+  "Quellenstraße 20, 61118 Bad Vilbel": [
+    50.1862885,
+    8.7444448
+  ],
+  "Pestalozzistraße 10, 61118 Bad Vilbel": [
+    50.1754659,
+    8.7187426
+  ],
+  "Zeppelinstraße 7, 61118 Bad Vilbel": [
+    50.1942292,
+    8.72373
+  ],
+  "Frankfurter Str. 46, 61118 Bad Vilbel": [
+    50.1810918,
+    8.7411844
+  ],
+  "Konrad-Adenauer-Allee 8-10, 61118 Bad Vilbel": [
+    50.2107719,
+    8.7409001
+  ],
+  "Homburgerstr. 71, 61118 Bad Vilbel": [
+    50.1873923,
+    8.7314038
+  ],
+  "Lauterbacher Straße 17, 61197 Florstadt": [
+    50.3336943,
+    8.9452487
+  ],
+  "Mainzer-Tor-Anlage 15, 61169 Friedberg": [
+    50.3328198,
+    8.7549692
+  ],
+  "Kaiserstraße 67, 61169 Friedberg": [
+    50.3375908,
+    8.7532825
+  ],
+  "Bahnhofspassage 10, 61169 Friedberg": [
+    50.3328279,
+    8.7586668
+  ],
+  "St.-Egreve-Str.15, 61184 Karben": [
+    50.233678,
+    8.7604249
+  ],
+  "Ramonvillestraße 27, 61184 Karben": [
+    50.235334,
+    8.7630206
+  ],
+  "Robert-Bosch-Straße 22, 61184 Karben": [
+    50.2290324,
+    8.7575466
+  ],
+  "Friedberger Straße 27, 61191 Rosbach": [
+    50.3044761,
+    8.6934088
+  ],
+  "Leimenkaut 4c, 61191 Rosbach": [
+    50.2937459,
+    8.6828059
+  ],
+  "Konrad-Adenauer-Straße 25, 61191 Rosbach": [
+    50.300478,
+    8.6912028
+  ],
+  "Im Mühlahl 9, 61203 Reichelsheim": [
+    50.3619854,
+    8.8787985
+  ],
+  "Biedrichstr. 21, 61200 Wölfersheim": [
+    50.394861,
+    8.815519
+  ],
+  "Berliner Straße 24, 61203 Reichelsheim": [
+    50.3622426,
+    8.8208615
+  ],
+  "Glück Auf Straße 8, 61203 Reichelsheim-Weckesheim": [
+    50.3580779,
+    8.8402373
+  ],
+  "Am Sauerborn 15, 61209 Echzell": [
+    50.3894767,
+    8.8913749
+  ],
+  "Bahnhofstr. 38, 63654 Büdingen": [
+    50.2902897,
+    9.1076993
+  ],
+  "Vogelsbergstraße 94, 63654 Büdingen": [
+    50.3016267,
+    9.1089186
+  ],
+  "Großendorf 2-3, 63654 Büdingen": [
+    50.2904944,
+    9.106879
+  ],
+  "Abellstr. 10, 63667 Nidda": [
+    50.4085901,
+    8.997187
+  ],
+  "Auf dem Graben 36, 63667 Nidda": [
+    50.4138425,
+    9.0103141
+  ],
+  "Wilhelm-Leuschner-Str. 4, 63683 Ortenberg": [
+    50.3549706,
+    9.0551006
+  ],
+  "Ober-Seemer-Straße 10-12, 63688 Gedern": [
+    50.4223733,
+    9.2062357
+  ],
+  "Erbengasse 10, 63694 Limeshain": [
+    null,
+    null
+  ],
+  "Bahnhofstr. 2, 63695 Glauburg": [
+    50.3234984,
+    9.0167879
+  ],
+  "Usinger Straße 31, 61239 Ober-Mörlen": [
+    50.372107,
+    8.6909203
+  ],
+  "Frankfurter Straße 49, 61239 Ober-Mörlen": [
+    50.3778757,
+    8.6941097
+  ],
+  "Obergasse 14, 35519 Rockenberg": [
+    50.4294333,
+    8.7360843
+  ],
+  "Am Kalkofen 8, 61206 Wöllstadt": [
+    50.281197,
+    8.765169
+  ],
+  "Hauptstraße 48, 61231 Bad Nauheim": [
+    50.363415,
+    8.7359831
+  ],
+  "Gymnasiumstr. 28, 63654 Büdingen": [
+    50.2875877,
+    9.1120776
+  ],
+  "Frankfurter Str. 11, 63674 Altenstadt": [
+    50.2841446,
+    8.9408767
+  ],
+  "Waitz-von-Eschen-Straße 12, 61231 Bad Nauheim": [
+    50.3555712,
+    8.7441798
+  ],
+  "Am Sonnenplatz 1, 61118 Bad Vilbel": [
+    50.2092212,
+    8.7450522
+  ],
+  "Spessartstr. 3, 63654 Büdingen": [
+    50.2561514,
+    9.0203988
+  ],
+  "Taunusstraße 73, 35510 Butzbach": [
+    50.4310007,
+    8.6589887
+  ],
+  "Hainweg 4-6, 61209 Echzell": [
+    null,
+    null
+  ],
+  "Löwenbuschstraße 20, 61209 Echzell": [
+    50.375484,
+    8.9052516
+  ],
+  "Buchenweg 17, 61184 Karben": [
+    50.2258431,
+    8.7757694
+  ],
+  "Pflanzenländer Straße 6, 63667 Nidda": [
+    50.3956721,
+    9.0247983
+  ],
+  "Usinger Straße 56, 61239 Ober-Mörlen": [
+    50.3713183,
+    8.6896453
+  ],
+  "Salhofstraße 7, 61191 Rosbach": [
+    50.267942,
+    8.7028599
+  ],
+  "Frankfurter Straße 11, 63764 Altenstadt": [
+    50.2841446,
+    8.9408767
+  ],
+  "Parkstraße 36-38, 61231 Bad Nauheim": [
+    50.3653472,
+    8.7355165
+  ],
+  "Marktplatz 1, 35510 Butzbach": [
+    50.4345214,
+    8.6722567
+  ],
+  "Lindenstraße 9, 61209 Echzell": [
+    50.3911428,
+    8.8846681
+  ],
+  "Mainzer-Tor-Anlage 6, 61169 Friedberg": [
+    50.3327073,
+    8.7558389
+  ],
+  "Schlossberg 7, 63688 Gedern": [
+    50.4232091,
+    9.2031681
+  ],
+  "Bahnhofstraße 34, 63695 Glauburg": [
+    50.3252055,
+    9.0146862
+  ],
+  "Karl-Birx-Straße 6, 63697 Hirzenhain": [
+    50.3922017,
+    9.1358674
+  ],
+  "Rathausplatz 1, 61184 Karben": [
+    50.2333266,
+    8.7627378
+  ],
+  "Hitzkirchener Straße 19, 63699 Kefenrod": [
+    50.3452806,
+    9.2147044
+  ],
+  "Am Zentrum 2, 63694 Limeshain": [
+    50.2605417,
+    8.987386
+  ],
+  "Wilhelm-Eckardt-Platz, 63667 Nidda": [
+    null,
+    null
+  ],
+  "Hauptstraße 2, 61194 Niddatal": [
+    50.3005246,
+    8.8139805
+  ],
+  "Frankfurter Straße 31, 61239 Ober-Mörlen": [
+    50.3755668,
+    8.6933912
+  ],
+  "Lauterbacher Straße 2, 63683 Ortenberg": [
+    50.3562316,
+    9.054061
+  ],
+  "Hauptstraße 15, 63691 Ranstadt": [
+    50.3588851,
+    8.9869083
+  ],
+  "Zum Rathaus 1, 61203 Reichelsheim": [
+    50.3596847,
+    8.873312
+  ],
+  "Obergasse 12, 35519 Rockenberg": [
+    50.4295721,
+    8.7360256
+  ],
+  "Homburger Straße 64, 61191 Rosbach": [
+    50.2990939,
+    8.6877496
+  ],
+  "Hauptstraße 60, 61200 Wölfersheim": [
+    50.3980711,
+    8.813047
+  ],
+  "Paul-Hallmann-Straße 3, 61206 Wöllstadt": [
+    50.2770619,
+    8.7687835
+  ],
+  "Bahnhofstr. 34, 63695 Glauburg": [
+    50.3252055,
+    9.0146862
+  ],
+  "Neue Str. 4, 63667 Nidda": [
+    50.4130284,
+    9.0075083
+  ],
+  "Pfingstweide 39, 61169 Friedberg": [
+    50.316712,
+    8.7575909
+  ],
+  "Eberhard-Bauner-Allee 35, 63654 Büdingen": [
+    50.2894614,
+    9.1078103
+  ],
+  "Bahnhofstr. 29, 63654 Büdingen": [
+    50.2909911,
+    9.1083275
+  ],
+  "Carl-Oelemann-Weg 14, 61231 Bad Nauheim": [
+    50.3565171,
+    8.730625
+  ],
+  "Fritz Kreß Str. 7, 63674 Altenstadt": [
+    50.2874132,
+    8.9472913
+  ],
+  "Bahnhofstr. 26, 63667 Nidda": [
+    50.4127876,
+    9.0053915
+  ],
+  "Fauerbacher Hauptstr. 29, 61169 Friedberg": [
+    null,
+    null
+  ],
+  "Bahnhofstr.61, 63667 Nidda": [
+    50.4131518,
+    9.005648
+  ],
+  "Vorstadt 9-11, 63654 Büdingen": [
+    50.2923363,
+    9.1132639
+  ],
+  "Gymnasiumstr. 24, 63654 Büdingen": [
+    50.2879121,
+    9.1124333
+  ],
+  "Kirchgasse 2, 61206 Wöllstadt": [
+    50.2988307,
+    8.750633
+  ],
+  "Frankfurterstraße 29, 61206 Wöllstadt": [
+    50.2816876,
+    8.7715249
+  ],
+  "Am Stauweiher 11, 63674 Altenstadt": [
+    50.2884035,
+    8.940804
+  ],
+  "Danziger Str. 2-5, 61231 Bad Nauheim": [
+    50.3697716,
+    8.7327339
+  ],
+  "Zanderstr. 19, 61231 Bad Nauheim": [
+    50.3609024,
+    8.7442884
+  ],
+  "Küchlerstr. 4, 61231 Bad Nauheim": [
+    50.3696262,
+    8.7436897
+  ],
+  "Carl Oelemann Weg 11, 61231 Bad Nauheim": [
+    50.3547947,
+    8.7286481
+  ],
+  "Kurstr. 32, 61231 Bad Nauheim": [
+    50.3586748,
+    8.7403109
+  ],
+  "Lindenstr. 18, 61231 Bad Nauheim": [
+    50.3654322,
+    8.7465396
+  ],
+  "Friedberger Str. 175, 61118 Bad Vilbel": [
+    50.2051323,
+    8.74405
+  ],
+  "Am Hang 12-16, 61118 Bad Vilbel": [
+    50.171291,
+    8.7252496
+  ],
+  "Pestalozzistr. 10, 61118 Bad Vilbel": [
+    50.1754659,
+    8.7187426
+  ],
+  "Henry-Dunant-Str. 12, 63654 Büdingen": [
+    50.2883419,
+    9.1008407
+  ],
+  "Münsterer Str. 15, 35510 Butzbach": [
+    50.4004919,
+    8.6320905
+  ],
+  "Hauptstr. 37, 35510 Butzbach": [
+    50.4016377,
+    8.6672875
+  ],
+  "Griedeler Str. 39, 35510 Butzbach": [
+    50.4348284,
+    8.6763636
+  ],
+  "Himmrichsweg 8, 35510 Butzbach": [
+    50.4374751,
+    8.6810069
+  ],
+  "Joh.-Seb.-Bach Str. 26, 35510 Butzbach": [
+    null,
+    null
+  ],
+  "Hinter der Burg 2, 35510 Butzbach": [
+    50.4325518,
+    8.6817579
+  ],
+  "Niddaer Str. 40, 61209 Echzell": [
+    50.3998837,
+    8.9039605
+  ],
+  "Herbert Rüfer Str. 3, 61197 Florstadt": [
+    50.3194257,
+    8.8685675
+  ],
+  "Usinger Straße 22, 61169 Friedberg": [
+    50.3306635,
+    8.7034793
+  ],
+  "Bachgasse 28 - 30, 61169 Friedberg": [
+    50.3324151,
+    8.7214233
+  ],
+  "Bismarckstraße 20, 61169 Fridberg": [
+    null,
+    null
+  ],
+  "Hanauer Str. 31, 61169 Friedberg": [
+    50.3333473,
+    8.7589628
+  ],
+  "Mainzer Toranlage 44 a, 61169 Friedberg": [
+    null,
+    null
+  ],
+  "Ober Seemer Str. 10, 63688 Gedern": [
+    50.4228208,
+    9.2047172
+  ],
+  "Otto Müller Str. 70, 63688 Gedern": [
+    50.4204828,
+    9.2096852
+  ],
+  "Ramonvillestr. 27, 61184 Karben": [
+    50.235334,
+    8.7630206
+  ],
+  "Blumenstr. 2, 63694 Limeshain": [
+    50.2708433,
+    8.9941082
+  ],
+  "Blumenstr. 15, 35516 Münzenberg": [
+    50.4585766,
+    8.7361192
+  ],
+  "Kurstr. 28, 63667 Nidda": [
+    50.4172456,
+    8.9859334
+  ],
+  "Ranstädter Str. 10, 63667 Nidda": [
+    50.3941371,
+    9.0135341
+  ],
+  "Villenstr. 13, 63667 Nidda": [
+    50.4163644,
+    8.9753805
+  ],
+  "Vogelsbergstr. 9, 63667 Nidda": [
+    50.4377096,
+    9.0218095
+  ],
+  "Am Heiligen Kreuz 9, 63667 Nidda": [
+    50.4176185,
+    9.0109926
+  ],
+  "Rotlippstr. 49, 63683 Ortenberg": [
+    50.3507941,
+    9.0421146
+  ],
+  "Sprudelstr. 19, 63683 Ortenberg": [
+    50.3438803,
+    9.0381136
+  ],
+  "Gettenauer Straße 16, 61203 Reichelsheim": [
+    50.3688413,
+    8.8670015
+  ],
+  "Gartenfeldstraße 23, 61203 Reichelsheim": [
+    50.3600481,
+    8.8183913
+  ],
+  "Kirchplatz 1, 61203 Reichelsheim": [
+    50.3400276,
+    8.8398916
+  ],
+  "Dorn-Assenheimer-Straße 25, 61203 Reichelsheim": [
+    50.3577094,
+    8.84243
+  ],
+  "Eichenstraße 2, 61203 Reichelsheim": [
+    50.358647,
+    8.870709
+  ],
+  "Dorn-Assenheimer Straße 19, 61203 Reichelsheim": [
+    50.3578029,
+    8.8421351
+  ],
+  "Kiefernweg 7, 61169 Friedberg": [
+    50.3325622,
+    8.7426682
+  ],
+  "In den Weingärten 2, 61206 Wöllstadt": [
+    50.2869421,
+    8.7657215
+  ],
+  "Hoherodskopfstraße 11, 61169 Friedberg": [
+    50.3385879,
+    8.8086438
+  ],
+  "Görbelheimer Mühle 1, 61169 Friedberg": [
+    50.3151531,
+    8.7833547
+  ],
+  "Carl-Pfeffer-Straße 8, 61169 Friedberg": [
+    50.3510118,
+    8.7923182
+  ],
+  "Lachenweg 16, 61169 Friedberg": [
+    50.3233729,
+    8.795757
+  ],
+  "Bünauring 12, 61169 Friedberg": [
+    50.3246998,
+    8.7777974
+  ],
+  "Straßheimer Straße 49, 61169 Friedberg": [
+    50.321679,
+    8.7419203
+  ],
+  "Hillersbachstraße 8, 63683 Ortenberg": [
+    50.3959536,
+    9.118181
+  ],
+  "Rauher Berg 1, 63683 Ortenberg": [
+    50.3576524,
+    9.132466
+  ],
+  "Am Wingert 20, 35519 Rockenberg": [
+    50.4162966,
+    8.7481349
+  ],
+  "Friedensstr. 4, 35519 Rockenberg": [
+    50.4183583,
+    8.7421099
+  ],
+  "Assenheimer Str. 1a, 61194 Niddatal": [
+    50.287253,
+    8.8451897
+  ],
+  "Preulgasse 13, 61191 Rosbach": [
+    50.3032748,
+    8.6937771
+  ],
+  "Marienstraße 51, 61169 Friedberg": [
+    50.3297162,
+    8.7190907
+  ],
+  "Hanauer Straße 13, 63683 Ortenberg": [
+    50.3639716,
+    9.14716
+  ],
+  "Ulica Ciechanowiec 5b, 61191 Rosbach": [
+    50.2965609,
+    8.6836289
+  ],
+  "Parkstraße 5, 63674 Altenstadt": [
+    50.26707,
+    8.9302853
+  ],
+  "Frankenstr. 29, 61191 Rosbach": [
+    50.3011089,
+    8.7073074
+  ],
+  "Am Viehtrieb 9, 61203 Reichelsheim": [
+    50.3658777,
+    8.8681699
+  ],
+  "Burggasse 12, 61197 Florstadt": [
+    50.3191043,
+    8.8568757
+  ],
+  "Zum Pfahlgraben 13, 35510 Butzbach": [
+    50.4599466,
+    8.6533992
+  ],
+  "Frankfurter Str. 40, 61197 Florstadt": [
+    50.3309539,
+    8.9404051
+  ],
+  "Am Hainwinkel 5, 61118 Bad Vilbel": [
+    50.1713325,
+    8.7368418
+  ],
+  "Im Seelhof 14c, 61191 Rosbach": [
+    50.2681104,
+    8.6987715
+  ],
+  "Eschenstr. 1, 63667 Nidda": [
+    50.406276,
+    9.0165605
+  ],
+  "Wingertstr. 16, 61200 Wölfersheim": [
+    50.4012529,
+    8.8134629
+  ],
+  "Oberpforte 3, 61200 Wölfersheim": [
+    50.4271146,
+    8.8640228
+  ],
+  "Taunusstraße 8, 61200 Wölfersheim": [
+    50.3981558,
+    8.8084844
+  ],
+  "Pfarrgasse 1, 35519 Rockenberg": [
+    50.4296118,
+    8.7326094
+  ],
+  "Pfarrgasse 5, 35516 Münzenberg": [
+    50.4526868,
+    8.775922
+  ],
+  "Rockenberger Str. 5, 35510 Butzbach": [
+    50.4394305,
+    8.7059185
+  ],
+  "Schillerstraße 1, 35516 Münzenberg": [
+    50.4608907,
+    8.7307575
+  ],
+  "Kirchplatz 12, 35510 Butzbach": [
+    50.4350101,
+    8.6744015
+  ],
+  "Am Bollwerk 14, 35510 Butzbach": [
+    50.4329193,
+    8.6665144
+  ],
+  "Griedeler Str. 42, 35510 Butzbach": [
+    50.4351491,
+    8.6752315
+  ],
+  "Bismarckstraße 20, 61169 Friedberg": [
+    50.3338212,
+    8.7569656
+  ],
+  "Fritz-Kreß Str. 7, 63674 Altenstadt": [
+    50.2874132,
+    8.9472913
+  ],
+  "Finkenweg 15, 63674 Altenstadt": [
+    50.267392,
+    8.9648291
+  ],
+  "Im Herrngarten 3, 63674 Altenstadt": [
+    50.2675981,
+    8.9311505
+  ],
+  "Am Hang 16, 61118 Bad Vilbel": [
+    50.1705904,
+    8.7295099
+  ],
+  "Büdesheimer Straße 15, 61184 Karben": [
+    50.2236502,
+    8.7806638
+  ],
+  "Berliner Straße 12, 61184 Karben": [
+    50.259156,
+    8.7971686
+  ],
+  "Westliche Ringstraße 11, 61184 Karben": [
+    50.2388137,
+    8.7701313
+  ],
+  "Ramonville Straße 37, 61184 Karben": [
+    50.2356733,
+    8.7615852
+  ],
+  "Bahnhofstraße 230, 61184 Karben": [
+    50.2320818,
+    8.7484216
+  ],
+  "Römerkastell 22, 61184 Karben": [
+    50.2507181,
+    8.756004
+  ],
+  "Karbener Weg 2, 61184 Karben": [
+    50.2304241,
+    8.7737474
+  ],
+  "Sauerbornstra0e 18, 61184 Karben": [
+    null,
+    null
+  ],
+  "Heizhöfer Straße 7, 61184 Karben": [
+    null,
+    null
+  ],
+  "Rathausstraße 45, 61184 Karben": [
+    50.2259811,
+    8.7738161
+  ],
+  "Am Taunusbrunnen 10a, 61184 Karben": [
+    50.236958,
+    8.7540016
+  ],
+  "Ramonville Straße 2, 61184 Karben": [
+    50.2340299,
+    8.7616147
+  ],
+  ", Hirzenhainer Str. 7, 63693 Ortenberg": [
+    50.3653156,
+    9.1455295
+  ],
+  "Alte Schulstraße 1, 61231 Bad Nauheim": [
+    50.4002002,
+    8.7472252
+  ],
+  "Hauptstraße 74, 61209 Echzell": [
+    50.3830047,
+    8.8820875
+  ],
+  "Schloßstraße 9, 61209 Echzell": [
+    50.3734743,
+    8.8946498
+  ],
+  "Kirchgasse 6, 35516 Münzenberg": [
+    50.4619642,
+    8.7285046
+  ],
+  "Falkensteiner Str. 23, 35510 Butzbach": [
+    50.429161,
+    8.6592868
+  ],
+  "Kurstr. 21, 61231 Bad Nauheim": [
+    50.3638906,
+    8.7405734
   ]
 }
