@@ -12,7 +12,7 @@ SHEET_NAME = "Anbieter"
 CACHE_FILE = "geocode_cache.json"
 
 INPUT_PATH = os.path.join(INPUT_DIR, FILENAME)
-OUTPUT_PATH = os.path.join(OUTPUT_DIR, "anbieter_mit_koordinaten.xlsx")
+OUTPUT_PATH = os.path.join(OUTPUT_DIR, "altersplanung.xlsx")
 
 geolocator = Nominatim(user_agent="superset-mapper")
 geocode_cache = {}
