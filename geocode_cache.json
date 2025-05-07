@@ -107,10 +107,6 @@
     50.3639988,
     8.7488995
   ],
-  "Carl-Oeleman-Weg 11, 61231 Bad Nauheim": [
-    null,
-    null
-  ],
   "Pestalozzi Str.10, 61118 Bad Vilbel": [
     50.1754659,
     8.7187426
@@ -147,10 +143,6 @@
     50.2935939,
     8.8080209
   ],
-  "Leimkau 2b, 61191 Rosbach": [
-    null,
-    null
-  ],
   "Bei den Junkergärten 1, 61191 Rosbach": [
     50.3009087,
     8.6940727
@@ -158,10 +150,6 @@
   "Kleine Klostergasse 16, 61169 Friedberg": [
     50.3376272,
     8.7568023
-  ],
-  "Alte Bahnhofsstr.3, 61169 Friedberg": [
-    null,
-    null
   ],
   "Saarstr.55, 61169 Friedberg": [
     50.3323013,
@@ -247,17 +235,9 @@
     50.2893701,
     9.113504
   ],
-  "Stückweg 6, 63667 Nidda": [
-    null,
-    null
-  ],
   "Dieselstraße 22, 61231 Bad Nauheim": [
     50.3659349,
     8.7519682
-  ],
-  "Wisselheimer Haupstraße 38, 61231 Bad Nauheim": [
-    null,
-    null
   ],
   "Straßheimer Straße 67-69, 61169 Friedberg": [
     50.3220558,
@@ -287,10 +267,6 @@
     50.2336011,
     8.7714209
   ],
-  "Ritterhausstraße 10, 61231 Bad Nauheim": [
-    null,
-    null
-  ],
   "Schlossplatz 1, 35510 Butzbach": [
     50.4331772,
     8.6751641
@@ -302,10 +278,6 @@
   "Am Alten Jugendzentrum 4, 61169 Friedberg": [
     50.3332815,
     8.7586517
-  ],
-  "Altenstädter Str. 27, 63694 Limeshain": [
-    null,
-    null
   ],
   "Hauptstraße 22, 35516 Münzenberg": [
     50.4624975,
@@ -415,10 +387,6 @@
     50.3634657,
     8.7499588
   ],
-  "Karl-Oelemann-Weg 11, 61231 Bad Nauheim": [
-    null,
-    null
-  ],
   "Kurstraße 9, 61231 Bad Nauheim": [
     50.3647354,
     8.7406227
@@ -434,10 +402,6 @@
   "Johann-Sebastian-Bach-Straße 26, 35510 Butzbach": [
     50.4443603,
     8.6606747
-  ],
-  "Langönser Straße 10, 35510 Butzbach": [
-    null,
-    null
   ],
   "Weiseler Str. 17, 35510 Butzbach": [
     50.4326999,
@@ -575,10 +539,6 @@
     50.4223733,
     9.2062357
   ],
-  "Erbengasse 10, 63694 Limeshain": [
-    null,
-    null
-  ],
   "Bahnhofstr. 2, 63695 Glauburg": [
     50.3234984,
     9.0167879
@@ -626,10 +586,6 @@
   "Taunusstraße 73, 35510 Butzbach": [
     50.4310007,
     8.6589887
-  ],
-  "Hainweg 4-6, 61209 Echzell": [
-    null,
-    null
   ],
   "Löwenbuschstraße 20, 61209 Echzell": [
     50.375484,
@@ -694,10 +650,6 @@
   "Am Zentrum 2, 63694 Limeshain": [
     50.2605417,
     8.987386
-  ],
-  "Wilhelm-Eckardt-Platz, 63667 Nidda": [
-    null,
-    null
   ],
   "Hauptstraße 2, 61194 Niddatal": [
     50.3005246,
@@ -766,10 +718,6 @@
   "Bahnhofstr. 26, 63667 Nidda": [
     50.4127876,
     9.0053915
-  ],
-  "Fauerbacher Hauptstr. 29, 61169 Friedberg": [
-    null,
-    null
   ],
   "Bahnhofstr.61, 63667 Nidda": [
     50.4131518,
@@ -851,10 +799,6 @@
     50.4374751,
     8.6810069
   ],
-  "Joh.-Seb.-Bach Str. 26, 35510 Butzbach": [
-    null,
-    null
-  ],
   "Hinter der Burg 2, 35510 Butzbach": [
     50.4325518,
     8.6817579
@@ -875,17 +819,9 @@
     50.3324151,
     8.7214233
   ],
-  "Bismarckstraße 20, 61169 Fridberg": [
-    null,
-    null
-  ],
   "Hanauer Str. 31, 61169 Friedberg": [
     50.3333473,
     8.7589628
-  ],
-  "Mainzer Toranlage 44 a, 61169 Friedberg": [
-    null,
-    null
   ],
   "Ober Seemer Str. 10, 63688 Gedern": [
     50.4228208,
@@ -1150,14 +1086,6 @@
   "Karbener Weg 2, 61184 Karben": [
     50.2304241,
     8.7737474
-  ],
-  "Sauerbornstra0e 18, 61184 Karben": [
-    null,
-    null
-  ],
-  "Heizhöfer Straße 7, 61184 Karben": [
-    null,
-    null
   ],
   "Rathausstraße 45, 61184 Karben": [
     50.2259811,

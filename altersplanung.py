@@ -17,25 +17,31 @@ OUTPUT_PATH = os.path.join(OUTPUT_DIR, "anbieter_mit_koordinaten.xlsx")
 geolocator = Nominatim(user_agent="superset-mapper")
 geocode_cache = {}
 
-def geocode_address(address, index, length):
-    print(f"{index + 1}/{length}: {address}")
+def geocode_address(address, index, total):
+    print(f"{index + 1}/{total}: {address}")
+
     if address in geocode_cache:
-        print('Get from: Cache')
+        print("---> Get from: Cache")
         return geocode_cache[address]
+
+    print("---> Get from: *Geolocator")
     try:
-        print('Get from: Geolocator')
         location = geolocator.geocode(address)
         if location:
             coords = (location.latitude, location.longitude)
+            geocode_cache[address] = coords
+            save_geocode_cache()
+            time.sleep(1)
+            return coords
         else:
-            coords = (None, None)
+            print(f"(!) Address not found: {address} (!)")
+            print('-' * 28)
+            return (None, None)
     except GeocoderTimedOut:
+        print("Timeout occurred, retrying...")
         time.sleep(1)
-        return geocode_address(address, index, length)
-    geocode_cache[address] = coords
-    save_geocode_cache()
-    time.sleep(1)
-    return coords
+        return geocode_address(address, index, total)
+
 
 def save_geocode_cache():
     existing_cache = {}
@@ -82,24 +88,21 @@ def parse_adressen():
     df["PLZ"] = df["PLZ"].astype(str).str.strip()
     df["Ort"] = df["Ort"].str.strip()
 
-    df["full_address"] = df["Anschrift"] + ", " + df["PLZ"] + " " + df["Ort"]
+    df["Address"] = df["Anschrift"] + ", " + df["PLZ"] + " " + df["Ort"]
     df["latitude"] = None
     df["longitude"] = None
 
     length = len(df)
     for i, row in df.iterrows():
-        coords = geocode_address(row["full_address"], i, length)
+        coords = geocode_address(row["Address"], i, length)
         df.at[i, "latitude"] = coords[0]
         df.at[i, "longitude"] = coords[1]
 
     columns_to_keep = [
+        "Branche",
         "Anbieter",
         "Anschrift",
-        "PLZ",
-        "Ort",
-        "Telefon",
-        "E-Mail",
-        "full_address",
+        "Address",
         "latitude",
         "longitude"
     ]
