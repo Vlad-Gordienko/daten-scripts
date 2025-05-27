@@ -1,3 +1,11 @@
+# Dictionary of canonical Gemeinde (municipality) names and their known aliases or name variants.
+# Used for normalizing Gemeinde names extracted from filenames or datasets where formatting may vary.
+# Ensures consistent naming across all data sources and output files.
+
+# Example:
+# - "Friedberg Hessen" and "Friedberg" will both be mapped to "Friedberg (Hessen)"
+# - "Reichelsheim Wetterau" → "Reichelsheim (Wetterau)"
+
 gemeinde_aliases = {
     "Altenstadt": ["Altenstadt"],
     "Bad Nauheim": ["Bad Nauheim"],

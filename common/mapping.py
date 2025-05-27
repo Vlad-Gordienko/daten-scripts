@@ -61,9 +61,11 @@ from gemeinden.gemeinden import (
     Woellstadt,
 )
 
-
+# Imports all municipality-to-gebiet mappings from individual submodules.
+# Each imported mapping contains lists of alternative Gebiet names grouped under one Gemeinde.
 
 mapping = {
+    # Flatten all imported mappings into one combined dict
     **altenstadt_mapping,
     **bad_nauheim_mapping,
     **bad_vilbel_mapping,
@@ -91,6 +93,7 @@ mapping = {
     **woellstadt_mapping,
 }
 
+# Dictionary defining canonical Gemeinde names and their alternative spellings or representations
 mapping_gemeinde = {
     Altenstadt: ['Altenstadt'],
     Bad_Nauheim: ['Bad Nauheim'],
@@ -119,10 +122,15 @@ mapping_gemeinde = {
     Woellstadt: ['Wöllstadt'],
 }
 
-
+# Gebiet entries to ignore during mapping; these are aggregated or irrelevant administrative areas
 ignore_list = {'Ausgewählte Gebiete zusammengefasst', 'Sanierungsgebiet'}
 
 def normalize(text: str) -> str:
+    """
+    Normalizes German strings to a simplified format for comparison.
+    Converts umlauts and ß, lowercases, removes hyphens, trims whitespace.
+    Used for matching Gebiet names more reliably across inconsistent data.
+    """
     return (
         text.lower()
         .replace('ä', 'ae')
@@ -134,6 +142,15 @@ def normalize(text: str) -> str:
     )
 
 def get_gemeinde_from_gebiet(gebiet: str) -> str:
+    """
+    Maps a given Gebiet name to its corresponding Gemeinde.
+    - First checks if Gebiet is in the ignore list
+    - Then checks for exact match in `mapping_gemeinde`
+    - Then tries normalized fuzzy match against `mapping` entries
+    - Logs warning if no match is found
+
+    Returns the Gemeinde object (class instance), or an empty string if ignored.
+    """
     if gebiet in ignore_list:
         return ''
 
@@ -153,6 +170,12 @@ def get_gemeinde_from_gebiet(gebiet: str) -> str:
 
 
 def track_undetected_gebiete(input_gebiete: list[str]) -> dict:
+    """
+    Tracks which Gebiete were successfully matched to which Gemeinde.
+    Used for post-validation and completeness checking.
+
+    Returns a dictionary {Gemeinde: set of matched Gebiete}.
+    """
     found_by_gemeinde = {}
 
     for gebiet in input_gebiete:
@@ -165,6 +188,10 @@ def track_undetected_gebiete(input_gebiete: list[str]) -> dict:
     return found_by_gemeinde
 
 def log_missing_gebiete(found_by_gemeinde: dict):
+    """
+    Logs warnings for Gebiete that are expected (from `mapping`) but were not found in the dataset.
+    Helps catch missing data or incorrect Gebiet names in source files.
+    """
     for gemeinde, all_gebiete_nested in mapping.items():
         missing = []
 
@@ -178,6 +205,10 @@ def log_missing_gebiete(found_by_gemeinde: dict):
             )
 
 def get_gemeinde_by_schluessel(schluessel: str) -> str | None:
+    """
+    Maps an official Gemeindeschlüssel (key) to the canonical Gemeinde name.
+    Logs a warning if the key is unknown.
+    """
     if not schluessel:
         return None
 
@@ -188,6 +219,11 @@ def get_gemeinde_by_schluessel(schluessel: str) -> str | None:
     return None
 
 def normalize_gemeinde_name(raw_name: str) -> str:
+    """
+    Normalizes a raw Gemeinde name (from filename or data entry) to its canonical version.
+    Uses `gemeinde_aliases` to map known variants.
+    Logs a warning for any unmatched name.
+    """
     norm = raw_name.strip().lower().replace("-", " ").replace("ß", "ss")
 
     for canonical, alternatives in gemeinde_aliases.items():
