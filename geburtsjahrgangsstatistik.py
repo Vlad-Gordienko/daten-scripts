@@ -91,9 +91,9 @@ def add_summary_row(df):
         alte_quot = f"{round((alte_sum / mittleren_sum) * 100, 2)}%" if mittleren_sum else "0%"
 
         summary_rows.append({
-            "gemeinde": "SUMME",
-            "gemeindeschlüssel": "",
-            "iso": "",
+            "gemeinde": "Wetteraukreis",
+            "gemeindeschlüssel": "06440000",
+            "iso": "0",
             "junge count": junge_sum,
             "alte count": alte_sum,
             "mittleren count": mittleren_sum,
