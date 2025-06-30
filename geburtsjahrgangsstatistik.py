@@ -60,8 +60,8 @@ def parse_excel_for_year(current_year):
 
     grouped["junge quotient"] = (grouped["junge count"] / grouped["mittleren count"]).replace([float("inf"), -float("inf")], 0) * 100
     grouped["alte quotient"] = (grouped["alte count"] / grouped["mittleren count"]).replace([float("inf"), -float("inf")], 0) * 100
-    grouped["junge quotient"] = grouped["junge quotient"].round(2).astype(str) + "%"
-    grouped["alte quotient"] = grouped["alte quotient"].round(2).astype(str) + "%"
+    grouped["junge quotient"] = grouped["junge quotient"].round(2).astype(str)
+    grouped["alte quotient"] = grouped["alte quotient"].round(2).astype(str)
 
     grouped = grouped[~grouped["gemeinde"].isin(["Ausgewählte Gebiete zusammengefasst", "Sanierungsgebiet"])]
     grouped["jahr"] = current_year
@@ -87,8 +87,8 @@ def add_summary_row(df):
         junge_sum = subset["junge count"].sum()
         alte_sum = subset["alte count"].sum()
         mittleren_sum = subset["mittleren count"].sum()
-        junge_quot = f"{round((junge_sum / mittleren_sum) * 100, 2)}%" if mittleren_sum else "0%"
-        alte_quot = f"{round((alte_sum / mittleren_sum) * 100, 2)}%" if mittleren_sum else "0%"
+        junge_quot = f"{round((junge_sum / mittleren_sum) * 100, 2)}" if mittleren_sum else "0"
+        alte_quot = f"{round((alte_sum / mittleren_sum) * 100, 2)}" if mittleren_sum else "0"
 
         summary_rows.append({
             "gemeinde": "Wetteraukreis",
