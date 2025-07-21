@@ -57,6 +57,14 @@ def main():
 
     final_df = pd.concat(result_frames, ignore_index=True)
 
+    sum_df = final_df.groupby("Jahr").sum(numeric_only=True).reset_index()
+    sum_df["Gemeinde"] = "Wetteraukreis"
+
+    columns = ["Gemeinde", "Jahr"] + [col for col in final_df.columns if col not in ["Gemeinde", "Jahr"]]
+    sum_df = sum_df[columns]
+
+    final_df = pd.concat([final_df, sum_df], ignore_index=True)
+
     output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILENAME)
     final_df.to_excel(output_path, index=False)
 
