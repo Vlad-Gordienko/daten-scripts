@@ -6,48 +6,38 @@ INPUT_DIR = "data/arbeitsortbeschäftigung"
 OUTPUT_DIR = "result"
 OUTPUT_FILENAME = "arbeitslose_wetterau.xlsx"
 
-RENAME_MAP = {
-    "Arbeitslose im Rechtskreis SGB III": "SGB III",
-    "Arbeitslose im Rechtskreis SGB II": "SGB II"
-}
-
 def extract_fixed(file_path: str) -> pd.DataFrame:
     df = pd.read_excel(file_path, sheet_name="Daten", header=None)
 
     years = [2020, 2021, 2022, 2023, 2024]
 
-    categories_raw = df.iloc[38:46, 1].tolist()
-    categories = ["Insgesamt"] + [str(c).strip() for c in categories_raw]
+    row_total = 37
+    row_male = 38
+    row_female = 39
+    row_sgb3 = 44
+    row_sgb2 = 45
 
-    # die Werte sind falsch. Die Gesamtzahl der Arbeitslosen ist in Zeile 38 zu finden.
-    # die Kategorien sind nicht exklusiv und lassen sich nicht einfach aufsummieren.
-    # In den Zeilen 39/ 40 ist die Aufteilung von Männern und Frauen -> Zeile 39 (Männer) + Zeile 40 (Frauen) = Zeile 38 (Insgesamt)
-    # In den Zeilen 45/ 46 ist die Aufteilung nach SGB -> Zeile 45 + Zeile 46 = Zeile 38
-
-    # Bitte erstelle daraus:
-    # ein Tortendiagramm für: Männer und Frauen (mit den richtigen Werten)
-    # ein Balkendiagramm für Männer und Frauen im Zeitverlauf (Jahre in der X-Achse) (mit den richtigen Werten)
-    # ein Tortendiagramm für SGB II und SGB III
-    # Ein Balkendiagramm für SGB II und SGB III im Zeitverlauf (Jahre in der X-Achse)
-
-    values = df.iloc[37:46, 2:7].values.tolist()
-    data_matrix = [pd.Series(row).fillna(0).tolist() for row in values]
-
-    n_years = len(years)
-    for idx in range(len(data_matrix)):
-        data_matrix[idx] = data_matrix[idx][:n_years]
+    values_total = pd.to_numeric(df.iloc[row_total, 2:7], errors="coerce").fillna(0).tolist()
+    values_male = pd.to_numeric(df.iloc[row_male, 2:7], errors="coerce").fillna(0).tolist()
+    values_female = pd.to_numeric(df.iloc[row_female, 2:7], errors="coerce").fillna(0).tolist()
+    values_sgb3 = pd.to_numeric(df.iloc[row_sgb3, 2:7], errors="coerce").fillna(0).tolist()
+    values_sgb2 = pd.to_numeric(df.iloc[row_sgb2, 2:7], errors="coerce").fillna(0).tolist()
 
     filename = os.path.basename(file_path)
     match = re.match(r"Arbeitsmarkt-kommunal_\d+_(.*)\.xlsx", filename)
     gemeinde = match.group(1).replace("_", " ") if match else "Unbekannt"
 
     rows = []
-    for col_idx, year in enumerate(years):
-        row = {"Gemeinde": gemeinde, "Jahr": year}
-        for cat_idx, category in enumerate(categories):
-            cat_clean = RENAME_MAP.get(category, category)
-            val = data_matrix[cat_idx][col_idx]
-            row[cat_clean] = int(round(val))
+    for i, year in enumerate(years):
+        row = {
+            "Gemeinde": gemeinde,
+            "Jahr": year,
+            "Insgesamt": int(round(values_total[i])),
+            "Männer": int(round(values_male[i])),
+            "Frauen": int(round(values_female[i])),
+            "SGB III": int(round(values_sgb3[i])),
+            "SGB II": int(round(values_sgb2[i]))
+        }
         rows.append(row)
 
     return pd.DataFrame(rows)
