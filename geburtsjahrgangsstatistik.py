@@ -64,7 +64,7 @@ def parse_excel_for_year(current_year):
     grouped["alte quotient"] = grouped["alte quotient"].round(2).astype(str)
 
     grouped = grouped[~grouped["gemeinde"].isin(["Ausgewählte Gebiete zusammengefasst", "Sanierungsgebiet"])]
-    grouped["jahr"] = current_year
+    grouped["jahr"] = 2024
 
     final_columns = [
         "gemeinde",

@@ -19,6 +19,17 @@ def extract_fixed(file_path: str) -> pd.DataFrame:
     categories_raw = df.iloc[38:46, 1].tolist()
     categories = ["Insgesamt"] + [str(c).strip() for c in categories_raw]
 
+    # die Werte sind falsch. Die Gesamtzahl der Arbeitslosen ist in Zeile 38 zu finden.
+    # die Kategorien sind nicht exklusiv und lassen sich nicht einfach aufsummieren.
+    # In den Zeilen 39/ 40 ist die Aufteilung von Männern und Frauen -> Zeile 39 (Männer) + Zeile 40 (Frauen) = Zeile 38 (Insgesamt)
+    # In den Zeilen 45/ 46 ist die Aufteilung nach SGB -> Zeile 45 + Zeile 46 = Zeile 38
+
+    # Bitte erstelle daraus:
+    # ein Tortendiagramm für: Männer und Frauen (mit den richtigen Werten)
+    # ein Balkendiagramm für Männer und Frauen im Zeitverlauf (Jahre in der X-Achse) (mit den richtigen Werten)
+    # ein Tortendiagramm für SGB II und SGB III
+    # Ein Balkendiagramm für SGB II und SGB III im Zeitverlauf (Jahre in der X-Achse)
+
     values = df.iloc[37:46, 2:7].values.tolist()
     data_matrix = [pd.Series(row).fillna(0).tolist() for row in values]
 
