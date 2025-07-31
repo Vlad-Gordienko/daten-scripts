@@ -13,6 +13,7 @@ OUTPUT_FILENAME = "arbeitsmarkt_gesamt.xlsx"
 
 YEARS = [2020, 2021, 2022, 2023, 2024]
 
+# Mapping of unemployment and sector row indexes (constant across years)
 ROW_INDEXES_ARBEITSLOSIGKEIT = {
     "Insgesamt": 37,
     "Männer": 38,
@@ -20,7 +21,6 @@ ROW_INDEXES_ARBEITSLOSIGKEIT = {
     "SGB III": 44,
     "SGB II": 45,
 }
-
 ROW_INDEXES_SEKTOREN = {
     "Land- und Forstwirtschaft, Fischerei ( A )": 17,
     "Produzierendes Gewerbe ( B - F )": 18,
@@ -28,14 +28,16 @@ ROW_INDEXES_SEKTOREN = {
     "Sonstige Dienstleistungen ( J - U )": 20,
 }
 
-
 def parse_value(v):
+    # Safely convert value to float; fallback to 0 on failure
     try:
         return float(v)
     except:
         return 0
 
 def extract_arbeitsmarkt_data(file_path: str) -> pd.DataFrame:
+    # Parse municipality name from filename
+    # Read values for each year and append to result
     df = pd.read_excel(file_path, sheet_name="Daten", header=None)
 
     filename = os.path.basename(file_path)
@@ -62,6 +64,10 @@ def extract_arbeitsmarkt_data(file_path: str) -> pd.DataFrame:
 
 
 def extract_gemband_data(file_path: str) -> pd.DataFrame:
+    # Determine engine for .xlsb support
+    # Extract year from filename (used to select row range)
+
+    # Define year-specific row ranges due to inconsistent file structures
     import warnings
     warnings.simplefilter("ignore")
 
@@ -84,6 +90,9 @@ def extract_gemband_data(file_path: str) -> pd.DataFrame:
         2023: (2942, 2966), # (2943–2967)
         2024: (2942, 2966), # (2943–2967)
     }
+
+    # Iterate over rows and normalize municipality names
+    # Skip invalid or unknown entries
 
     if year not in row_range_by_year:
         raise ValueError(f"No row mapping for year: {year}")
@@ -117,6 +126,12 @@ def extract_gemband_data(file_path: str) -> pd.DataFrame:
 
 
 def main():
+    # Load and process all arbeitsmarkt files
+    # Load and process all gemband files
+
+    # Merge datasets on Gemeinde and Jahr if available
+    # Compute yearly sum row for the entire district (Wetteraukreis)
+    # Save final result to Excel
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     arbeitsmarkt_frames: List[pd.DataFrame] = []
