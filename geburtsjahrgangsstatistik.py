@@ -45,36 +45,30 @@ def parse_excel_for_year(current_year):
     df = df[df["Gemeinde"].notnull() & (df["Gemeinde"] != "")]
 
     grouped = df.groupby(["Gemeinde", "gruppe"])["EW gesamt"].sum().unstack(fill_value=0).reset_index()
-    grouped["gemeindeschlüssel"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[0])
-    grouped["gemeindeschlüssel"] = grouped["gemeindeschlüssel"].apply(
+    grouped["gemeinde_schluessel"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[0])
+    grouped["gemeinde_schluessel"] = grouped["gemeinde_schluessel"].apply(
         lambda x: str(x).zfill(8) if pd.notnull(x) and str(x).isdigit() else ""
     )
-    grouped["gemeinde"] = grouped["gemeindeschlüssel"].apply(get_gemeinde_by_schluessel)
+    grouped["gemeinde"] = grouped["gemeinde_schluessel"].apply(get_gemeinde_by_schluessel)
     grouped["iso"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[1])
 
-    grouped = grouped.rename(columns={
-        "junge": "junge count",
-        "alte": "alte count",
-        "mittleren": "mittleren count"
-    })
-
-    grouped["junge quotient"] = (grouped["junge count"] / grouped["mittleren count"]).replace([float("inf"), -float("inf")], 0) * 100
-    grouped["alte quotient"] = (grouped["alte count"] / grouped["mittleren count"]).replace([float("inf"), -float("inf")], 0) * 100
-    grouped["junge quotient"] = grouped["junge quotient"].round(2).astype(str)
-    grouped["alte quotient"] = grouped["alte quotient"].round(2).astype(str)
+    grouped["junge_quotient"] = (grouped["junge"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
+    grouped["alte_quotient"] = (grouped["alte"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
+    grouped["junge_quotient"] = grouped["junge_quotient"].round(2).astype(str)
+    grouped["alte_quotient"] = grouped["alte_quotient"].round(2).astype(str)
 
     grouped = grouped[~grouped["gemeinde"].isin(["Ausgewählte Gebiete zusammengefasst", "Sanierungsgebiet"])]
     grouped["jahr"] = 2024
 
     final_columns = [
         "gemeinde",
-        "gemeindeschlüssel",
+        "gemeinde_schluessel",
         "iso",
-        "junge count",
-        "alte count",
-        "mittleren count",
-        "junge quotient",
-        "alte quotient",
+        "junge",
+        "alte",
+        "mittleren",
+        "junge_quotient",
+        "alte_quotient",
         "jahr"
     ]
     return grouped[final_columns]
@@ -84,21 +78,21 @@ def add_summary_row(df):
     summary_rows = []
     for year in df["jahr"].unique():
         subset = df[df["jahr"] == year]
-        junge_sum = subset["junge count"].sum()
-        alte_sum = subset["alte count"].sum()
-        mittleren_sum = subset["mittleren count"].sum()
+        junge_sum = subset["junge"].sum()
+        alte_sum = subset["alte"].sum()
+        mittleren_sum = subset["mittleren"].sum()
         junge_quot = f"{round((junge_sum / mittleren_sum) * 100, 2)}" if mittleren_sum else "0"
         alte_quot = f"{round((alte_sum / mittleren_sum) * 100, 2)}" if mittleren_sum else "0"
 
         summary_rows.append({
             "gemeinde": "Wetteraukreis",
-            "gemeindeschlüssel": "06440000",
+            "gemeinde_schluessel": "06440000",
             "iso": "0",
-            "junge count": junge_sum,
-            "alte count": alte_sum,
-            "mittleren count": mittleren_sum,
-            "junge quotient": junge_quot,
-            "alte quotient": alte_quot,
+            "junge": junge_sum,
+            "alte": alte_sum,
+            "mittleren": mittleren_sum,
+            "junge_quotient": junge_quot,
+            "alte_quotient": alte_quot,
             "jahr": year
         })
 
