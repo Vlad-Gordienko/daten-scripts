@@ -46,11 +46,7 @@ def parse_excel_for_year(current_year):
 
     grouped = df.groupby(["Gemeinde", "gruppe"])["EW gesamt"].sum().unstack(fill_value=0).reset_index()
     grouped["gemeinde_schluessel"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[0])
-    grouped["gemeinde_schluessel"] = grouped["gemeinde_schluessel"].apply(
-        lambda x: str(x).zfill(8) if pd.notnull(x) and str(x).isdigit() else ""
-    )
     grouped["gemeinde"] = grouped["gemeinde_schluessel"].apply(get_gemeinde_by_schluessel)
-    grouped["iso"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[1])
 
     grouped["junge_quotient"] = (grouped["junge"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
     grouped["alte_quotient"] = (grouped["alte"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
@@ -63,7 +59,6 @@ def parse_excel_for_year(current_year):
     final_columns = [
         "gemeinde",
         "gemeinde_schluessel",
-        "iso",
         "junge",
         "alte",
         "mittleren",
@@ -86,8 +81,7 @@ def add_summary_row(df):
 
         summary_rows.append({
             "gemeinde": "Wetteraukreis",
-            "gemeinde_schluessel": "06440000",
-            "iso": "0",
+            "gemeinde_schluessel": "6440",
             "junge": junge_sum,
             "alte": alte_sum,
             "mittleren": mittleren_sum,
