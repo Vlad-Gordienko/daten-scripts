@@ -5,13 +5,13 @@ import datetime
 from common.gebiet_schluessel import gebiet_schluessel
 from common.mapping import get_gemeinde_from_gebiet, track_undetected_gebiete, log_missing_gebiete, get_gemeinde_by_schluessel
 
-FILENAME = "geburtsjahrgangsstatistik.xlsx"
+FILENAME = "geburtsjahrgangsstatistik"
 INPUT_DIR = "data"
 OUTPUT_DIR = "result"
 SHEET_NAME = "dadigesamt"
 
-INPUT_FILENAME = os.path.join(INPUT_DIR, FILENAME)
-OUTPUT_FILENAME = os.path.join(OUTPUT_DIR, FILENAME)
+INPUT_FILENAME = os.path.join(INPUT_DIR, FILENAME + ".xlsx")
+OUTPUT_FILENAME = os.path.join(OUTPUT_DIR, FILENAME + ".csv")
 
 def parse_excel_for_year(current_year):
     xls = pd.ExcelFile(INPUT_FILENAME)
@@ -54,7 +54,7 @@ def parse_excel_for_year(current_year):
     grouped["alte_quotient"] = grouped["alte_quotient"].round(2).astype(str)
 
     grouped = grouped[~grouped["gemeinde"].isin(["Ausgewählte Gebiete zusammengefasst", "Sanierungsgebiet"])]
-    grouped["jahr"] = 2024
+    grouped["jahr"] = current_year
 
     final_columns = [
         "gemeinde",
@@ -122,7 +122,7 @@ def parse_excel():
     with_sum = add_summary_row(combined)
     final = reorder_with_sum_after_each_year(with_sum)
 
-    final.to_excel(OUTPUT_FILENAME, index=False)
+    final.to_csv(OUTPUT_FILENAME, index=False)
     print(f"Result saved to {OUTPUT_FILENAME}")
 
 
