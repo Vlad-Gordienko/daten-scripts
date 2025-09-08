@@ -48,8 +48,8 @@ def parse_excel_for_year(current_year):
     grouped["gemeinde_schluessel"] = grouped["Gemeinde"].map(lambda x: gebiet_schluessel.get(x, ("", ""))[0])
     grouped["gemeinde"] = grouped["gemeinde_schluessel"].apply(get_gemeinde_by_schluessel)
 
-    grouped["junge_quotient"] = (grouped["junge"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
-    grouped["alte_quotient"] = (grouped["alte"] / grouped["mittleren"]).replace([float("inf"), -float("inf")], 0) * 100
+    grouped["junge_quotient"] = (grouped["junge"] / (grouped["mittleren"] + grouped["junge"] + grouped["alte"])).replace([float("inf"), -float("inf")], 0) * 100
+    grouped["alte_quotient"] = (grouped["alte"] / (grouped["mittleren"] + grouped["junge"] + grouped["alte"])).replace([float("inf"), -float("inf")], 0) * 100
     grouped["junge_quotient"] = grouped["junge_quotient"].round(2).astype(str)
     grouped["alte_quotient"] = grouped["alte_quotient"].round(2).astype(str)
 
@@ -76,8 +76,8 @@ def add_summary_row(df):
         junge_sum = subset["junge"].sum()
         alte_sum = subset["alte"].sum()
         mittleren_sum = subset["mittleren"].sum()
-        junge_quot = f"{round((junge_sum / mittleren_sum) * 100, 2)}" if mittleren_sum else "0"
-        alte_quot = f"{round((alte_sum / mittleren_sum) * 100, 2)}" if mittleren_sum else "0"
+        junge_quot = f"{round((junge_sum / (mittleren_sum + junge_sum + alte_sum)) * 100, 2)}" if (mittleren_sum + junge_sum + alte_sum) else "0"
+        alte_quot = f"{round((alte_sum / (mittleren_sum + junge_sum + alte_sum)) * 100, 2)}" if (mittleren_sum + junge_sum + alte_sum) else "0"
 
         summary_rows.append({
             "gemeinde": "Wetteraukreis",
@@ -118,7 +118,9 @@ def parse_excel():
     YEARS = [2019, 2020, 2021, 2022, 2023, 2024]
 
     results = [parse_excel_for_year(year) for year in YEARS]
+    print(results[0])
     combined = pd.concat(results, ignore_index=True)
+    print(combined)
     with_sum = add_summary_row(combined)
     final = reorder_with_sum_after_each_year(with_sum)
 
