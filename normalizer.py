@@ -63,6 +63,7 @@ def process_one_file(input_path: str, enc: str, delimiter: str) -> None:
     script_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(script_dir, os.path.basename(input_path))
 
+
     unknown = Counter()
     truncated = padded = 0
     total_rows = 0
