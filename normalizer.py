@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 """
 normalizer.py — sehr einfacher CSV-Fixer.
 - fester Trenner ist ';', kein Auto-Detekt
@@ -12,6 +15,7 @@ import io
 import os
 import re
 import sys
+import logging
 from collections import Counter
 from typing import List
 
@@ -33,7 +37,7 @@ _CTRL_RE = re.compile(r"[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u0080-\u00
 
 
 def normalize_text(s: str, unknown_counter: Counter) -> str:
-    """einfache Normalisierung von Zelle"""
+    """Einfache Normalisierung einer Zelle."""
     if not s:
         return s
 
@@ -58,11 +62,10 @@ def normalize_text(s: str, unknown_counter: Counter) -> str:
 
 
 def process_one_file(input_path: str, enc: str, delimiter: str) -> None:
-    """liest Datei, schreibt neue Datei neben Skript"""
+    """Liest Datei und schreibt neue Datei neben dem Skript (gleicher Dateiname)."""
     # Ausgabe-Pfad: Ordner vom Skript
     script_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(script_dir, os.path.basename(input_path))
-
 
     unknown = Counter()
     truncated = padded = 0
@@ -86,23 +89,32 @@ def process_one_file(input_path: str, enc: str, delimiter: str) -> None:
 
         # Ausgabe schreiben
         with io.open(output_path, "w", encoding="utf-8", newline="") as wf:
-            writer = csv.writer(wf, delimiter=delimiter, quotechar='"', lineterminator="\n")
+            writer = csv.writer(
+                wf,
+                delimiter=delimiter,
+                quotechar='"',
+                doublequote=True,
+                lineterminator="\n",
+                quoting=csv.QUOTE_MINIMAL,
+            )
 
-            # Kopf anpassen zu expected_cols
+            # Kopf an expected_cols anpassen
             if len(header) > expected_cols:
                 header = header[:expected_cols]
             elif len(header) < expected_cols:
                 header += [""] * (expected_cols - len(header))
             writer.writerow(header)
 
-            # wenn erste Datenzeile war Kopf-Ersatz → jetzt schreiben
+            # wenn erste Datenzeile Kopf-Ersatz war → jetzt schreiben
             if first_row is not None:
                 total_rows += 1
                 row = first_row
                 if len(row) > expected_cols:
-                    row = row[:expected_cols]; truncated += 1
+                    row = row[:expected_cols]
+                    truncated += 1
                 elif len(row) < expected_cols:
-                    row += [""] * (expected_cols - len(row)); padded += 1
+                    row += [""] * (expected_cols - len(row))
+                    padded += 1
                 writer.writerow(row)
 
             # alle anderen Zeilen
@@ -114,11 +126,13 @@ def process_one_file(input_path: str, enc: str, delimiter: str) -> None:
                 while row and (row[-1] is None or row[-1] == ""):
                     row.pop()
 
-                # 2) Länge anpassen zu expected_cols
+                # 2) Länge an expected_cols anpassen
                 if len(row) > expected_cols:
-                    row = row[:expected_cols]; truncated += 1
+                    row = row[:expected_cols]
+                    truncated += 1
                 elif len(row) < expected_cols:
-                    row += [""] * (expected_cols - len(row)); padded += 1
+                    row += [""] * (expected_cols - len(row))
+                    padded += 1
                 writer.writerow(row)
 
     # kurzer Bericht auf stderr
@@ -132,18 +146,40 @@ def process_one_file(input_path: str, enc: str, delimiter: str) -> None:
             sys.stderr.write(f"        {repr(ch)} (U+{ord(ch):04X}) × {cnt}\n")
 
 
-def main():
-    ap = argparse.ArgumentParser(description="Sehr einfacher CSV-Normalizer.")
-    ap.add_argument("path", help="Pfad zu CSV-Datei")
-    ap.add_argument("--encoding", default="cp1252", help="Eingabe-Encoding (Standard: cp1252)")
-    ap.add_argument("--delimiter", default=";", help="CSV-Trenner (Standard: ';')")
-    args = ap.parse_args()
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Sehr einfacher CSV-Normalizer.")
+    parser.add_argument("path", help="Pfad zu CSV-Datei")
+    parser.add_argument(
+        "--encoding", default="cp1252", help="Eingabe-Encoding (Standard: cp1252)"
+    )
+    parser.add_argument(
+        "--delimiter", default=";", help="CSV-Trenner (Standard: ';')"
+    )
+    args = parser.parse_args()
+
+    # Logging kurz initialisieren (geht trotzdem alles auf stderr)
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
     if not os.path.exists(args.path):
         sys.stderr.write(f"[err] Datei nicht gefunden: {args.path}\n")
-        sys.exit(1)
+        return 1
 
     try:
         process_one_file(args.path, args.encoding, args.delimiter)
+        logging.info("Fertig.")
+        return 0
     except UnicodeDecodeError as e:
-        sys.stderr.write(f"[err] Lesen Fehler ({args.encodin
+        sys.stderr.write(
+            f"[err] Lese-Fehler im Encoding '{args.encoding}': {e}\n"
+        )
+        return 2
+    except csv.Error as e:
+        sys.stderr.write(f"[err] CSV-Fehler: {e}\n")
+        return 3
+    except Exception as e:
+        sys.stderr.write(f"[err] Unerwarteter Fehler: {e}\n")
+        return 99
+
+
+if __name__ == "__main__":
+    sys.exit(main())
