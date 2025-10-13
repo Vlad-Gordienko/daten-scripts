@@ -9,7 +9,8 @@ CHAR_MAP = {
     "Ä": "AE", "Ö": "OE", "Ü": "UE",
     "ä": "ae", "ö": "oe", "ü": "ue",
     "ß": "SS",
-    "€": "EUR", "$": "USD"
+    "€": "EUR", "$": "USD",
+    "§": "#",
 }
 
 def normalize_value(value):
