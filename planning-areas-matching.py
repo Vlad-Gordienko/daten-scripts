@@ -38,7 +38,7 @@ GEOJSON_MAP = {
 
 
 def find_header_row(df_no_header):
-    """Ищем строку с заголовками."""
+    """Sucht die Zeile mit Spaltennamen."""
     must_have = {"PLZ", "Gemeindeziffer", "Gemeinde", "ASD-Regionen"}
     for i in range(min(50, len(df_no_header))):
         vals = [str(x).strip() for x in df_no_header.iloc[i].tolist()]
@@ -46,11 +46,11 @@ def find_header_row(df_no_header):
             return i
     with pd.option_context("display.max_columns", None, "display.width", 200):
         print(df_no_header.head(5))
-    raise ValueError("Не удалось найти строку с заголовками (PLZ/Gemeindeziffer/Gemeinde/ASD-Regionen).")
+    raise ValueError("Konnte die Kopfzeile nicht finden (PLZ/Gemeindeziffer/Gemeinde/ASD-Regionen).")
 
 
 def read_zustaendigkeiten(xlsx_path: Path) -> pd.DataFrame:
-    """Читаем лист 'Zuständigkeiten'."""
+    """Liest das Tabellenblatt 'Zuständigkeiten'."""
     raw = pd.read_excel(xlsx_path, sheet_name="Zuständigkeiten", header=None, dtype=str)
 
     header_row = find_header_row(raw)
@@ -59,14 +59,14 @@ def read_zustaendigkeiten(xlsx_path: Path) -> pd.DataFrame:
 
 
 def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Оставляем нужные колонки и переименовываем."""
+    """Behält nur benötigte Spalten und benennt sie um."""
     orig_cols = list(df.columns)
     df.columns = [str(c).strip() for c in df.columns]
 
     needed_raw = ["ASD-Regionen", "Gemeinde", "Gemeindeziffer", "PLZ"]
     missing = [c for c in needed_raw if c not in df.columns]
     if missing:
-        raise ValueError(f"Не найдены обязательные колонки: {missing}")
+        raise ValueError(f"Fehlende Spalten: {missing}")
 
     ren = {
         "ASD-Regionen": "ASD-Region",
@@ -79,6 +79,7 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def clean_and_format(df: pd.DataFrame) -> pd.DataFrame:
+    """Bereinigt und formatiert die Daten."""
     df = df[~df.apply(lambda x: x.astype(str).str.contains("Ergebnis", case=False, na=False)).any(axis=1)]
     df = df.dropna(how="all")
 
@@ -110,6 +111,7 @@ def clean_and_format(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_matching_table(xlsx_path: Path) -> pd.DataFrame:
+    """Erstellt die fertige Tabelle."""
     xls = pd.ExcelFile(xlsx_path)
 
     df_raw = read_zustaendigkeiten(xlsx_path)
@@ -120,20 +122,20 @@ def build_matching_table(xlsx_path: Path) -> pd.DataFrame:
 
 def main():
     if not INPUT_FILE.exists():
-        print(f"Ошибка: файл не найден {INPUT_FILE}")
+        print(f"Fehler: Datei nicht gefunden {INPUT_FILE}")
         return
 
     try:
         df = build_matching_table(INPUT_FILE)
     except Exception as e:
-        print("Ошибка при создании таблицы:", repr(e))
+        print("Fehler beim Erstellen der Tabelle:", repr(e))
         return
 
     try:
         df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
-        print(f"Готово: записано в {OUTPUT_FILE}")
+        print(f"Fertig: Datei gespeichert in {OUTPUT_FILE}")
     except Exception as e:
-        print("Ошибка при сохранении CSV:", repr(e))
+        print("Fehler beim Speichern der CSV-Datei:", repr(e))
 
 
 if __name__ == "__main__":
