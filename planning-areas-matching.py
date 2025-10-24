@@ -5,7 +5,12 @@ from pathlib import Path
 
 
 INPUT_FILE = Path("data/WK_Planungsraeume.xlsx")
-OUTPUT_FILE = Path("WK_Planungsraeume_matching.csv")
+OPTIONS = {
+    "wk-ASD-Regionen-matching.csv":      ["ASD-Region",       "Gemeinde", "Gemeindekennziffer", "PLZ", "GEOjson"],
+    "wk-ASD-Bezirke-matching.csv":       ["ASD-Bezirk",       "Gemeinde", "Gemeindekennziffer", "PLZ", "GEOjson"],
+    "wk-sozialeHilfen-matching.csv":     ["Soziale Hilfe",    "Gemeinde", "Gemeindekennziffer", "PLZ", "GEOjson"],
+    "wk-Pflegestützpunkte-matching.csv": ["Pflegestützpunkt", "Gemeinde", "Gemeindekennziffer", "PLZ", "GEOjson"],
+}
 
 
 GEOJSON_MAP = {
@@ -39,14 +44,14 @@ GEOJSON_MAP = {
 
 def find_header_row(df_no_header):
     """Sucht die Zeile mit Spaltennamen."""
-    must_have = {"PLZ", "Gemeindeziffer", "Gemeinde", "ASD-Regionen"}
+    must_have = {"PLZ", "Gemeindeziffer", "Gemeinde", "ASD-Regionen", "ASD-Bezirke" ,"Soziale Hilfen", "Pflegestützpunkte"}
     for i in range(min(50, len(df_no_header))):
         vals = [str(x).strip() for x in df_no_header.iloc[i].tolist()]
         if must_have.issubset(set(vals)):
             return i
     with pd.option_context("display.max_columns", None, "display.width", 200):
         print(df_no_header.head(5))
-    raise ValueError("Konnte die Kopfzeile nicht finden (PLZ/Gemeindeziffer/Gemeinde/ASD-Regionen).")
+    raise ValueError("Konnte die Kopfzeile nicht finden (PLZ/Gemeindeziffer/Gemeinde/ASD-Regionen/ASD-Bezirke/Soziale Hilfen/Pflegestützpunkte)")
 
 
 def read_zustaendigkeiten(xlsx_path: Path) -> pd.DataFrame:
@@ -63,13 +68,16 @@ def normalize_columns(df: pd.DataFrame) -> pd.DataFrame:
     orig_cols = list(df.columns)
     df.columns = [str(c).strip() for c in df.columns]
 
-    needed_raw = ["ASD-Regionen", "Gemeinde", "Gemeindeziffer", "PLZ"]
+    needed_raw = ["ASD-Regionen", "ASD-Bezirke" ,"Soziale Hilfen", "Pflegestützpunkte", "Gemeinde", "Gemeindeziffer", "PLZ"]
     missing = [c for c in needed_raw if c not in df.columns]
     if missing:
         raise ValueError(f"Fehlende Spalten: {missing}")
 
     ren = {
         "ASD-Regionen": "ASD-Region",
+        "ASD-Bezirke": "ASD-Bezirk",
+        "Soziale Hilfen": "Soziale Hilfe",
+        "Pflegestützpunkte": "Pflegestützpunkt",
         "Gemeindeziffer": "Gemeindekennziffer",
         "Gemeinde": "Gemeinde",
         "PLZ": "PLZ",
@@ -83,7 +91,7 @@ def clean_and_format(df: pd.DataFrame) -> pd.DataFrame:
     df = df[~df.apply(lambda x: x.astype(str).str.contains("Ergebnis", case=False, na=False)).any(axis=1)]
     df = df.dropna(how="all")
 
-    for col in ["ASD-Region", "Gemeinde", "Gemeindekennziffer", "PLZ"]:
+    for col in ["ASD-Region", "ASD-Bezirk" ,"Soziale Hilfe", "Pflegestützpunkt", "Gemeinde", "Gemeindekennziffer", "PLZ"]:
         df[col] = df[col].astype(str).str.strip()
 
     df["PLZ"] = (
@@ -102,11 +110,9 @@ def clean_and_format(df: pd.DataFrame) -> pd.DataFrame:
     before = len(df)
     df = df[(df["Gemeinde"] != "") & (df["PLZ"] != "") & (df["Gemeinde"] != "") & (df["Gemeindekennziffer"] != "")]
 
-    df = df.drop_duplicates(subset=["Gemeindekennziffer", "PLZ", "ASD-Region", "Gemeinde"])
+    df = df.drop_duplicates(subset=["ASD-Region", "ASD-Bezirk" ,"Soziale Hilfe", "Pflegestützpunkt", "Gemeindekennziffer", "PLZ", "Gemeinde"])
     df["GEOjson"] = df["Gemeindekennziffer"].map(GEOJSON_MAP).fillna("")
-
-    df = df[["ASD-Region", "Gemeinde", "Gemeindekennziffer", "PLZ", "GEOjson"]].reset_index(drop=True)
-
+    df = df[["ASD-Region", "ASD-Bezirk" ,"Soziale Hilfe", "Pflegestützpunkt", "Gemeinde", "Gemeindekennziffer", "PLZ", "GEOjson"]].reset_index(drop=True)
     return df
 
 
@@ -132,8 +138,10 @@ def main():
         return
 
     try:
-        df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
-        print(f"Fertig: Datei gespeichert in {OUTPUT_FILE}")
+        for filename, cols in OPTIONS.items():
+            sub = df[cols].copy()
+            sub.to_csv(Path(filename), index=False, encoding="utf-8-sig")
+            print(f"Fertig: Datei gespeichert in {filename}")
     except Exception as e:
         print("Fehler beim Speichern der CSV-Datei:", repr(e))
 
