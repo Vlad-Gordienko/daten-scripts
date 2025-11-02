@@ -5,7 +5,7 @@ import datetime
 from common.gebiet_schluessel import gebiet_schluessel
 from common.mapping import get_gemeinde_from_gebiet, track_undetected_gebiete, log_missing_gebiete, get_gemeinde_by_schluessel
 
-FILENAME = "geburtsjahrgangsstatistik"
+FILENAME = "WK_Geburtsjahrgangsstatistik_Januar2025_KLW"
 INPUT_DIR = "data"
 OUTPUT_DIR = "result"
 SHEET_NAME = "dadigesamt"

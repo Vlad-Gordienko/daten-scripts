@@ -123,7 +123,7 @@ mapping_gemeinde = {
 }
 
 # Gebiet entries to ignore during mapping; these are aggregated or irrelevant administrative areas
-ignore_list = {'Ausgewählte Gebiete zusammengefasst', 'Sanierungsgebiet'}
+ignore_list = {'Ausgewählte Gebiete zusammengefasst', 'Sanierungsgebiet', '﻿"Gebiet"'}
 
 def normalize(text: str) -> str:
     """
