@@ -29,8 +29,12 @@ def load_base():
 def build_year(df, year):
     d = df.copy()
     d["age"] = year - d["Jahrgang"]
-    d = d[(d["age"] >= 0) & (d["age"] <= 21)]
-    d["variable"] = pd.cut(d["age"], bins=[-1, 6, 14, 21], labels=["0-6", "7-14", "15-21"])
+    d = d[(d["age"] >= 0) & (d["age"] <= 20)]
+    d["variable"] = pd.cut(
+        d["age"],
+        bins=[-1, 2, 6, 14, 20],
+        labels=["0 bis unter 3 Jahre", "3 bis 6 Jahre", "7 bis 14 Jahre", "15 bis unter 21 Jahre"]
+    )
     agg = (
         d.groupby(["Gemeinde", "variable"], observed=False)["EW gesamt"]
          .sum()
@@ -47,7 +51,7 @@ def build_year(df, year):
     agg["jahr"] = year
     long = agg.melt(
         id_vars=["gemeinde","gemeinde_schluessel","jahr"],
-        value_vars=["0-6","7-14","15-21"],
+        value_vars=["0 bis unter 3 Jahre","3 bis 6 Jahre","7 bis 14 Jahre","15 bis unter 21 Jahre"],
         var_name="variable",
         value_name="value",
     )
